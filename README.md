@@ -26,9 +26,15 @@ equation disappears and the third equation is shown,
 prompting the second question's answer. This continues
 for each equation.
 
+HOW TO RUN:
+-----------
+Simply run game.py using python:
+> python game.py
+
 TODO:
 -----
 - Make the previous answers hidden (the game is pointless
  if there is nothing to memorize)
 - Improve usuability by adding instructions and more prompts
 - Add a GUI
+- Handle edge cases for user input
