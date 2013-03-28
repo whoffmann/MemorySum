@@ -1,5 +1,6 @@
 from equation import Equation
 from ringbuffer import RingBuffer
+from time import sleep
 
 '''
 This is a rough draft of the equation memory game
@@ -25,8 +26,6 @@ prompting the second question's answer. This continues
 for each equation
 
 TODO:
-- Make the previous answers hidden (the game is pointless
- if there is nothing to memorize)
 - Improve usuability by adding instructions and more prompts
 - Add a GUI
 '''
@@ -50,17 +49,20 @@ def nextEquation():
 
 # Show equations until the ring buffer is full
 while(not rb.isFull()):
+    # Remove the previous equation
+    print '\n' * 80
     nextEquation() 
     total += 1
+    sleep(3)
 
 response = input('Begin! :') 
 while(total < max_equations):
-     
+    # Remove the previous equation
+    print '\n' * 80
     # Check the answer to the oldest equation 
     if(rb.getOldest().validate(response)):
         print("Correct!")
         correct +=1
-    
 
     nextEquation()
     total += 1
