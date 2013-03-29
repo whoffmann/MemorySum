@@ -36,7 +36,8 @@ class Equation:
             self.answer = self.a - self.b
     
     def validate(self, response):
-        ''' Checks if the user has submitted the right answer for this equation 
+        ''' Checks if the user has submitted the right answer for this 
+        equation. 
         
         response -- the user's answer to this equation
         '''

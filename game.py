@@ -30,42 +30,52 @@ TODO:
 - Add a GUI
 '''
 
-difficulty = 2 # How many equations back the player has to remember
-max_int = 10
+class Game:
+    
+    def __init__(self):
+        self.difficulty = 2 
+        self.max_int = 10
+        self.correct = 0
+        self.total = 0
+        self.max_equations = 10
+        self.rb = RingBuffer(self.difficulty)
+    
+    def nextEquation(self):
+        # Keep track of the number of equations
+        self.total += 1
+        # Create the equation
+        eq = Equation(10) 
+        # Add it to the buffer
+        self.rb.add(eq)
+        # And display it 
+        return '#%s) %s' %  (self.total, eq)
 
-correct = 0
-total = 0
-max_equations = 10
+    def validateAnswer(self, answer):
+        if(self.rb.getOldest().validate(answer)):
+            self.correct +=1
+            return True
+        else:
+            return False
 
-rb = RingBuffer(difficulty)
-
-def nextEquation():
-    # Create the equation
-    eq = Equation(10) 
-    # Add it to the buffer
-    rb.add(eq)
-    # And display it 
-    print '#%s) %s' %  (total, eq)
-
-# Show equations until the ring buffer is full
-while(not rb.isFull()):
-    # Remove the previous equation
-    print '\n' * 80
-    nextEquation() 
-    total += 1
-    sleep(3)
-
-response = input('Begin! :') 
-while(total < max_equations):
-    # Remove the previous equation
-    print '\n' * 80
-    # Check the answer to the oldest equation 
-    if(rb.getOldest().validate(response)):
-        print("Correct!")
-        correct +=1
-
-    nextEquation()
-    total += 1
-
-    # Get the next answer
-    response = input(':')
+    
+    def gameLoop(self):
+        # Show equations until the ring buffer is full
+        while(not self.rb.isFull()):
+            nextEquation() 
+            self.total += 1
+            sleep(3)
+        
+        response = input('Begin! :') 
+        while(total < max_equations):
+            # Remove the previous equation
+            print '\n' * 80
+            # Check the answer to the oldest equation 
+            if(self.rb.getOldest().validate(response)):
+                print("Correct!")
+                self.correct +=1
+        
+            nextEquation()
+            self.total += 1
+        
+            # Get the next answer
+            response = input(':')

@@ -28,8 +28,8 @@ for each equation.
 
 HOW TO RUN:
 -----------
-Simply run game.py using python:
-> python game.py
+Simply run gui.py using python:
+> python gui.py
 
 TODO:
 -----
