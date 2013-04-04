@@ -18,7 +18,7 @@ The goal is to master each level of difficulty.
 The first level of difficulty is trivial. The answer is
 the equation currently seen.
 
-The second level of diffiuclty requires one number to be
+The second level of difficulty requires one number to be
 memorized. After the player memorizes the first answer, 
 it becomes hidden and the second equation is shown. After 
 typing in the answer for the first equation, the second
@@ -30,6 +30,7 @@ HOW TO RUN:
 -----------
 To play the command line version, run game.py using python:
 > python game.py
+
 To run the GUI version, run gui.py:
 > python gui.py
 
@@ -42,5 +43,4 @@ TODO:
 - Improve usuability by adding instructions and more prompts
 - Handle edge cases for user input
 - Allow user to specify difficulty level
-- End the game in a better way
 - Display user score in GUI
