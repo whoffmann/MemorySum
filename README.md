@@ -28,13 +28,19 @@ for each equation.
 
 HOW TO RUN:
 -----------
-Simply run gui.py using python:
+To play the command line version, run game.py using python:
+> python game.py
+To run the GUI version, run gui.py:
 > python gui.py
+
+If you make changes to ringbuffer.py or equation.py, you can 
+run tests by running test.py:
+> python test.py
 
 TODO:
 -----
-- Make the previous answers hidden (the game is pointless
- if there is nothing to memorize)
 - Improve usuability by adding instructions and more prompts
-- Add a GUI
 - Handle edge cases for user input
+- Allow user to specify difficulty level
+- End the game in a better way
+- Display user score in GUI
